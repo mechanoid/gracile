@@ -7,7 +7,7 @@ const migrationTemplate = () => `
 export const up = () => {}
 `
 
-export default async (migrationName, options = { dir: './fsd' }) => {
+export default async (migrationName, options = { dir: './migrations' }) => {
   const dir = path.resolve(process.cwd(), options.dir)
   const fileName = migrationFileName(migrationName)
   const filePath = path.resolve(dir, fileName)

@@ -1,1 +1,1 @@
-export default async (options = { dir: './fsd' }) => {}
+export default async (options = { dir: './migrations' }) => {}
