@@ -4,7 +4,7 @@ import fs from 'fs-extra'
 const migrationFileName = migrationName => `${Date.now()}-${migrationName}.js`
 
 const migrationTemplate = () => `
-export const up = () => {}
+export const migration = () => {}
 `
 
 export default async (migrationName, options = { dir: './migrations' }) => {

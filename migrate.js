@@ -43,7 +43,7 @@ export default async (options = { dir: './migrations' }) => {
 
     // this interface allows async .up messages, and allows variable behavior of operators
     const results = await Promise.all(
-      migrations.map(m => (transmit ? transmit(m.up) : m.up()))
+      migrations.map(m => (transmit ? transmit(m.migration) : m.up()))
     )
 
     if (close) {
