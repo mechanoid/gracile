@@ -1,6 +1,6 @@
 {
   "name": "gracile",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "fine, simple and small migrations",
   "main": "migrate.js",
   "scripts": {
