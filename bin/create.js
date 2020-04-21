@@ -66,7 +66,6 @@ export const createCli = async args => {
       'MIGRATION_NAME is missing. Please go for `gracile create --help` for usage instructions'
     )
   }
-  console.log('NAME', migrationName)
 
   const options = {
     dir: args['--dir'] || defaultDir

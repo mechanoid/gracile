@@ -27,8 +27,8 @@ const run = async args => {
 
 const args = arg(Object.assign({}, createOptions))
 run(args)
-  .then(() => {
-    console.log('done!')
+  .then((message = 'done!') => {
+    console.log(message)
   })
   .catch(e => {
     console.error(e.message)
