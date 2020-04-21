@@ -1,6 +1,6 @@
 {
   "name": "gracile",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "fine, simple and small migrations",
   "main": "index.js",
   "scripts": {
