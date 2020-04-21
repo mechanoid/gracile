@@ -67,7 +67,7 @@ of the migrations and if they have already been applied.
 
 Lets start with a fresh new application
 
-```
+```bash
 mkdir my-app
 cd my-app
 npm init
@@ -76,13 +76,13 @@ npm init
 After initialization of the app we add gracile and the
 related postgres operator to the app project.
 
-```
+```bash
 npm install gracile gracile-postgres
 ```
 
 Once the dependencies have been installed we can create our first migration:
 
-```
+```bash
 npx gracile create CreateUserTable
 ```
 
@@ -90,7 +90,7 @@ This command provides us with a very thin shell for a new migration.
 The filename is prefixed with a timestamp, that will serve as a migration Id
 for maintaining our run book.
 
-```
+```bash
 cat ./migrations/1587449246840-CreateUserTable.js
 =>
 export const migration = () => {}
@@ -113,15 +113,15 @@ Lets extend our migration example now with some real world code. We use `knex` a
 as a query builder here, but you might also want to create your queries
 either manually or in a completely different manner.
 
-```
+```bash
 npm i knex pg # install the dependencies first
 ```
 
-```
+```javascript
 import knex from 'knex'
 const pg = knex({ client: 'pg' })
 
-const createUserTable = pg.schema.createTable('users', function (table) {
+const createUserTable = pg.schema.createTable('users', function(table) {
   table.increments()
   table.string('name')
   table.timestamps()
@@ -133,7 +133,7 @@ export const migration = () =>
 
 After adding the migration we can now run the migration script
 
-```
+```bash
 npx gracile migrate -o gracile-postgres
 
 => (output might differ in future versions)
