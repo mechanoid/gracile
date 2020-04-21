@@ -2,7 +2,7 @@
 import arg from 'arg'
 import {
   description as createDescription,
-  create,
+  createCli,
   createOptions
 } from './create.js'
 
@@ -18,7 +18,7 @@ create: ${createDescription}
 
 const run = async args => {
   if (args._ && args._.indexOf('create') >= 0) {
-    return create(args)
+    return createCli(args)
   } else if (args['--help']) {
     console.log(argsHelp())
     process.exit(0)
@@ -31,6 +31,6 @@ run(args)
     console.log('done!')
   })
   .catch(e => {
-    console.error(e)
+    console.error(e.message)
     process.exit(1)
   })
