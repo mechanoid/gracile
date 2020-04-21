@@ -8,17 +8,17 @@ gracile is a small footprint db migration tool.
 
 Install the package inside of your app
 
-```
+```bash
 npm install gracile --save-dev # (as development dependency is usually feasible)
 
-or
+# or
 
 npm install -g gracile # (as global dependency)
 ```
 
 run the provided binary for help
 
-```
+```bash
 # if installed as part of a project you can access the binary via npx
 
 npx gracile --help
@@ -35,7 +35,7 @@ gracile --help
 
 Call the individual usage instructions by
 
-```
+```bash
 gracile create --help
 
 # and
