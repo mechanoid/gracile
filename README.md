@@ -92,8 +92,8 @@ for maintaining our run book.
 
 ```bash
 cat ./migrations/1587449246840-CreateUserTable.js
-=>
-export const migration = () => {}
+# =>
+# export const migration = () => {}
 ```
 
 The migrations do not give you much restrictions. The `gracile-postgres` operator
@@ -136,11 +136,11 @@ After adding the migration we can now run the migration script
 ```bash
 npx gracile migrate -o gracile-postgres
 
-=> (output might differ in future versions)
+# => (output might differ in future versions)
 
-init
-Apply: create table "users" ("id" serial primary key, "name" varchar(255), "created_at" timestamptz, "updated_at" timestamptz)
-done!
+#init
+#Apply: create table "users" ("id" serial primary key, "name" varchar(255), "created_at" timestamptz, "updated_at" timestamptz)
+#done!
 ```
 
 After running our migrations you find 2 new tables in your database, the `user` table and the `gracilemigrations` table.
