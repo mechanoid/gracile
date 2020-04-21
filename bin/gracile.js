@@ -48,7 +48,12 @@ const run = async args => {
 const args = arg(
   Object.assign(
     {},
-    { '--help': Boolean, '-h': '--help' },
+    {
+      '--help': Boolean,
+      '-h': '--help',
+      '--verbose': Boolean,
+      '-v': '--verbose'
+    },
     createOptions,
     migrateOptions
   )
@@ -58,6 +63,7 @@ run(args)
     console.log(message)
   })
   .catch(e => {
-    console.error(e.message)
+    console.error(args['--verbose'] ? e : e.message)
+
     process.exit(1)
   })

@@ -1,0 +1,12 @@
+{
+  "name": "gracile-example",
+  "version": "0.0.1",
+  "description": "just an example, not to be published",
+  "type": "module",
+  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "gracile": "file:.."
+  }
+}
