@@ -4,3 +4,4 @@ tmp/
 .env
 certs/
 /example/migrations
+/example/package-lock.json
