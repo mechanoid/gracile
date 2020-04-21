@@ -7,6 +7,9 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "gracile": "file:.."
+    "gracile": "file:..",
+    "gracile-postgres": "file:../../gracile-postgres",
+    "knex": "^0.21.0",
+    "pg": "^8.0.2"
   }
 }

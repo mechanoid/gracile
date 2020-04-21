@@ -4,16 +4,31 @@ const defaultDir = './migrations'
 
 const argOptions = {
   '--dir': String,
-  '--help': Boolean
+  '--help': Boolean,
+  '--operator': String,
+  '--host': String,
+  '--port': String,
+  '--username': String,
+  '--password': String
 }
 const aliases = {
   // aliases
   '-d': '--dir',
-  '-h': '--help'
+  '-h': '--help',
+  '-o': '--operator',
+  '-t': '--host',
+  '-p': '--port',
+  '-u': '--username',
+  '-w': '--password'
 }
 
 const argDescriptions = {
   '--dir': `select migration directory (default: "${defaultDir}")`,
+  '--operator': 'connect database operator (e.g. gracile-postgres)',
+  '--host': 'database host',
+  '--port': 'database port',
+  '--username': 'database username',
+  '--password': 'database password',
   '--help': 'shows help message'
 }
 
@@ -60,7 +75,12 @@ export const migrateCli = async args => {
   }
 
   const options = {
-    dir: args['--dir'] || defaultDir
+    dir: args['--dir'] || defaultDir,
+    operator: args['--operator'],
+    host: args['--host'],
+    port: args['--port'],
+    username: args['--username'],
+    password: args['--password']
   }
 
   return migrate(options)
