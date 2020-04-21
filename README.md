@@ -26,6 +26,13 @@ npx gracile --help
 # or without npx if you have installed it globally
 
 gracile --help
+
+# gracile [create|migrate]
+#
+# (append --help for the single commands, e.g. 'gracile create --help')
+#
+# create: creates a new migration file in the migration directory (default: ./migrations)
+# migrate: walks over all migrations in the migration directory (default: ./migrations) and maintains the migration state in the database
 ```
 
 `gracile` provides two basic commands:
@@ -38,9 +45,35 @@ Call the individual usage instructions by
 ```bash
 gracile create --help
 
+# gracile create MIGRATION_NAME [options]
+#
+# creates a new migration file in the migration directory (default: ./migrations)
+#
+# allowed options:
+#
+#   --dir / -d (String): select directory in which the migration should be created (default: "./migrations")
+#   --help / -h (Boolean): shows help message
+
+
 # and
 
 gracile migrate --help
+
+# gracile migrate [options]
+#
+# walks over all migrations in the migration directory (default: ./migrations) and maintains the migration state in the database
+#
+# allowed options:
+#
+#   --dir / -d (String): select migration directory (default: "./migrations")
+#   --help / -h (Boolean): shows help message
+#   --operator / -o (String): connect database operator (e.g. gracile-postgres)
+#   --host / -t (String): database host for the operator
+#   --port / -p (String): database port for the operator
+#   --username / -u (String): database username for the operator
+#   --password / -w (String): database password for the operator
+#   --connection-string / -c (String): allows to pass a complete connection string if supported by the operator. The connectionString is usually mutual exclusive to username/password, host, port, etc
+#   --pool-size / -l (Number): if supported by the operator the connection pool size of the db can be set
 ```
 
 `gracile migrate` can take some db config arguments which might be supported
