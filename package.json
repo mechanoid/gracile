@@ -20,5 +20,8 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "type": "module",
-  "module": "index.js"
+  "module": "index.js",
+  "dependencies": {
+    "arg": "^4.1.3"
+  }
 }
