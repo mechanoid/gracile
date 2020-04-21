@@ -1,3 +1,7 @@
+![GitHub](https://img.shields.io/github/license/mechanoid/gracile)
+![npm](https://img.shields.io/npm/v/gracile)
+![Maturity](https://img.shields.io/badge/maturity-alpha-lightgrey)
+
 gracile is a small footprint db migration tool.
 
 ## Installation / Usage
@@ -54,6 +58,10 @@ directly from there without necessity to pass the connection parameters as CLI a
 the `migrate` action of gracile can make use of operator plugins
 that provide the migrations to a database and maintain the status
 of the migrations and if they have already been applied.
+
+### Available Operators
+
+- [PostgreSQL](https://github.com/mechanoid/gracile-postgres)
 
 ## Example
 
