@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 import arg from 'arg'
+import dotenv from 'dotenv'
+
 import {
   description as createDescription,
   createCli,
   createOptions
 } from './create.js'
+
 import {
   description as migrateDescription,
   migrateCli,
   migrateOptions
 } from './migrate.js'
+
+dotenv.config()
 
 const argsHelp = () => {
   return `
