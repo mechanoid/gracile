@@ -3,21 +3,6 @@ import path from 'path'
 import fs from 'fs-extra'
 import filterKeys from 'object-filter-keys'
 
-const localRequire = createRequire(process.cwd(), 'node_modules')
-
-// hack because import() is not looking up node_modules in process.cwd()
-// Maybe the behaviour is linked to the local dev setup. This will be evaluated
-// once the handover to the plugin works as expected
-const resolvePluginPath = pluginName => {
-  const pluginPath = path.resolve(process.cwd(), 'node_modules', pluginName)
-  const pluginPackagePath = path.resolve(pluginPath, 'package.json')
-  const plugin = localRequire(pluginPackagePath)
-  if (!(plugin && plugin.main)) {
-    throw new Error(`the plugin "${pluginName}" provides no "main" property`)
-  }
-  return path.resolve(pluginPath, plugin.main)
-}
-
 const migrationId = filePath => {
   const fileName = path.basename(filePath, '.js')
   const [id] = fileName.split('-') // TODO: check for malformed filenames
@@ -35,8 +20,7 @@ export default async (options = { dir: './migrations' }) => {
   )
 
   if (options.operator) {
-    const operatorModulePath = resolvePluginPath(options.operator)
-    const { init, transmit, close } = await import(operatorModulePath)
+    const { init, transmit, close } = await import(options.operator)
 
     if (init) {
       const operatorConfig = filterKeys(
