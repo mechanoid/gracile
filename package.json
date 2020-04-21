@@ -2,7 +2,7 @@
   "name": "gracile",
   "version": "1.0.1",
   "description": "fine, simple and small migrations",
-  "main": "index.js",
+  "main": "migrate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +12,7 @@
     "gracile": "bin/gracile.js"
   },
   "type": "module",
-  "module": "index.js",
+  "module": "migrate.js",
   "dependencies": {
     "arg": "^4.1.3",
     "dotenv": "^8.2.0",
