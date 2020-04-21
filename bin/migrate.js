@@ -9,7 +9,9 @@ const argOptions = {
   '--host': String,
   '--port': String,
   '--username': String,
-  '--password': String
+  '--password': String,
+  '--connection-string': String,
+  '--pool-size': Number
 }
 const aliases = {
   // aliases
@@ -19,17 +21,23 @@ const aliases = {
   '-t': '--host',
   '-p': '--port',
   '-u': '--username',
-  '-w': '--password'
+  '-w': '--password',
+  '-c': '--connection-string',
+  '-l': '--pool-size'
 }
 
 const argDescriptions = {
   '--dir': `select migration directory (default: "${defaultDir}")`,
   '--operator': 'connect database operator (e.g. gracile-postgres)',
-  '--host': 'database host',
-  '--port': 'database port',
-  '--username': 'database username',
-  '--password': 'database password',
-  '--help': 'shows help message'
+  '--host': 'database host for the operator',
+  '--port': 'database port for the operator',
+  '--username': 'database username for the operator',
+  '--password': 'database password for the operator',
+  '--help': 'shows help message',
+  '--connection-string':
+    'allows to pass a complete connection string if supported by the operator. The connectionString is usually mutual exclusive to username/password, host, port, etc',
+  '--pool-size':
+    'if supported by the operator the connection pool size of the db can be set'
 }
 
 const alias = name => {
@@ -80,7 +88,9 @@ export const migrateCli = async args => {
     host: args['--host'],
     port: args['--port'],
     username: args['--username'],
-    password: args['--password']
+    password: args['--password'],
+    connectionString: args['--connection-string'],
+    poolSize: args['--pool-size']
   }
 
   return migrate(options)

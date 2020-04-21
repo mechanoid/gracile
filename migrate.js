@@ -27,7 +27,9 @@ export default async (options = { dir: './migrations' }) => {
         'host',
         'port',
         'username',
-        'password'
+        'password',
+        'connectionString',
+        'poolSize'
       )
       await init(operatorConfig)
     }

@@ -39,6 +39,16 @@ gracile create --help
 gracile migrate --help
 ```
 
+`gracile migrate` can take some db config arguments which might be supported
+by an operator. Please give a read to the operator Readme for more details.
+
+`gracile` also features `dotenv`, which allows to put a `.env` file in your
+app directory. This makes the variables listed in the .env file available
+as ENV vars to the node process (readable by `process.env.ENV_VAR`).
+
+This allows database adapters like e.g. postgres to read the connection parameters
+directly from there without necessity to pass the connection parameters as CLI arguments.
+
 ## Plugins
 
 the `migrate` action of gracile can make use of operator plugins
@@ -91,9 +101,13 @@ good idea. If you really desire rollbacks use a db that supports transactions.
 The `gracile-postgres` operator tries to wrap all migrations in a transaction,
 out of the box. Other operators might not provide the same.
 
-Lets extend our migration example now with some real world code. We use `knex`
+Lets extend our migration example now with some real world code. We use `knex` and `pg`
 as a query builder here, but you might also want to create your queries
 either manually or in a completely different manner.
+
+```
+npm i knex pg # install the dependencies first
+```
 
 ```
 import knex from 'knex'
