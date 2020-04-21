@@ -1,4 +1,3 @@
-import { createRequire } from 'module'
 import path from 'path'
 import fs from 'fs-extra'
 import filterKeys from 'object-filter-keys'
